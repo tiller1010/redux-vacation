@@ -1,28 +1,58 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {createStore} from 'redux';
+import {Provider, connect} from 'react-redux';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+const initialState={
+  bookStatus: 'unbooked'
+}
+
+const bookActionCreator=()=>{
+  return {type:'book'}
+}
+
+const reducer=(state=initialState,action)=>{
+  switch(action.type){
+    case 'book':
+      return {bookStatus:'booked'}
+    default:
+      return state;
   }
+}
+
+const store=createStore(reducer);
+
+store.subscribe(()=>{
+  console.log('State changed to',store.getState());
+});
+
+const mapStateToProps=(state)=>{
+  return {bookStatus:state.bookStatus}
+}
+
+const mapDispatchToProps=(dispatch)=>{
+  return {
+    bookHotel:function(){
+      dispatch(bookActionCreator())
+    }
+  }
+}
+
+class BookerButton extends Component{
+  render(){
+    return(
+      <button onClick={this.props.bookHotel}>Book Now</button>
+    )
+  }
+}
+
+const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButton);
+
+const App=()=>{
+  return(
+    <Provider store={store}>
+      <Booker/>
+    </Provider>
+  )
 }
 
 export default App;
