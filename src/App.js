@@ -3,18 +3,23 @@ import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import './vacationStyles.css';
 
+const unbooked='unbooked';
+const booked='booked';
+const book='book';
+
 const initialState={
-  bookStatus: 'unbooked'
+  flightStatus: '',
+  hotelStatus: unbooked
 }
 
 const bookActionCreator=()=>{
-  return {type:'book'}
+  return {type:book}
 }
 
 const reducer=(state=initialState,action)=>{
   switch(action.type){
-    case 'book':
-      return {bookStatus:'booked'}
+    case book:
+      return {bookStatus:booked}
     default:
       return state;
   }
@@ -32,7 +37,7 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-    bookHotel:function(){
+    book:function(){
       dispatch(bookActionCreator())
     }
   }
@@ -42,8 +47,8 @@ class BookerButton extends Component{
   render(){
     return(
       <div className='BookerButton'>
-        <img className='hotelImage' src={this.props.img}/>
-        <button onClick={this.props.bookHotel}>Book Now</button>
+        <img className='optionImage' src={this.props.img}/>
+        <button onClick={this.props.book}>Book Now</button>
       </div>
     )
   }
