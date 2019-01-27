@@ -5,8 +5,11 @@ import './vacationStyles.css';
 
 const unbooked='unbooked';
 const booked='booked';
-const unbook='unbook'
+const unbook='unbook';
 const book='book';
+const flight='flight';
+const destination='destination';
+const hotel='hotel';
 
 const initialState={
   flightStatus: unbooked,
@@ -24,9 +27,23 @@ const unBookActionCreator=(payload)=>{
 const reducer=(state=initialState,action)=>{
   switch(action.type){
     case book:
-      return {Status: booked}
+      switch(action.payload){
+        case flight:
+          return Object.assign({},state,{flightStatus: booked});
+        case hotel:
+          return Object.assign({},state,{hotelStatus: booked});
+        default:
+          return state;
+      }
     case unbook:
-      return {Status: unbooked}
+      switch(action.payload){
+        case flight:
+          return Object.assign({},state,{flightStatus: unbooked});
+        case hotel:
+          return Object.assign({},state,{hotelStatus: unbooked});
+        default:
+          return state;
+      }
     default:
       return state;
   }
@@ -55,6 +72,8 @@ const mapDispatchToProps=(dispatch)=>{
     }
   }
 }
+
+// store.dispatch(bookActionCreator('flight'));
 
 class BookerButton extends Component{
   render(){
