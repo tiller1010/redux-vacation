@@ -80,19 +80,19 @@ class BookerButton extends Component{
     return(
       <div className='BookerButton'>
         <img className='optionImage' src={this.props.img}/>
-        <button onClick={this.props.book}>Book Now</button>
+        <button onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
       </div>
     )
   }
 }
-
+//()=>this.props.book('flight')
 const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButton);
 
 const App=()=>{
   return(
     <Provider store={store}>
-      <Booker img="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
-      <Booker img="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
+      <Booker booking='flight' img="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
+      <Booker booking='hotel' img="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
     </Provider>
   )
 }
