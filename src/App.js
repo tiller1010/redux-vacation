@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import './vacationStyles.css';
+import checkmark from './checkmark.png';
+import xmark from './xmark.png';
 import Header from './header.js';
 
 const unbooked='unbooked';
@@ -93,13 +95,27 @@ class BookerButtons extends Component{
   }
 }
 
+const Checkmark=(props)=>{
+  switch(props.checked){
+    case booked:
+      return(
+        <img className='Checkmark' src={checkmark}/>
+      )
+    case unbooked:
+      return(
+        <img className='Checkmark' src={xmark}/>
+      )
+    default: return this;
+  }
+}
+
 class DisplayStatus extends Component{
   render(){
     return(
       <div id='DisplayStatus'>
-        <h3>Your flight is {this.props.flightStatus}</h3>
-        <h3>Your destination is {this.props.destinationStatus}</h3>
-        <h3>Your hotel is {this.props.hotelStatus}</h3>
+        <h3>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h3>
+        <h3>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h3>
+        <h3>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h3>
       </div>
     )
   }
