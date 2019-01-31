@@ -1,3 +1,7 @@
+body{
+  background: #ccffcc;
+}
+
 .Header{
   font-family: 'Courgette', cursive;
   margin-left: 70px;
@@ -27,9 +31,22 @@
   margin:auto;
 }
 
+#DisplayStatus h3{
+  display: inline-block;
+  margin: 10px;
+}
+
 .Booker{
   display:inline-block;
   margin: 20px;
+  text-align: center;
+  font-family: 'Krub', sans-serif;
+  color:#ddf;
+  text-shadow: 1px 1px 5px #559;
+}
+.Booker h2{
+  position: relative;
+  top:15px;
 }
 
 .optionImage{
