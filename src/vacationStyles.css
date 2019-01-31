@@ -1,8 +1,45 @@
-.BookerButton{
+.Header{
+  font-family: 'Courgette', cursive;
+  margin-left: 70px;
+  font-size: 20px;
+  color:#cccc55;
+  text-shadow: 4px 4px 5px #222200;
+}
+#headingStripe{
+  width:890px;
+  height:50px;
+  background: #55cc55;
+  position: relative;
+  right:30px;
+  bottom:45px;
+  z-index: -1;
+  text-align: center;
+  line-height: 60px;
+  font-style: italic;
+  color:#ffff55;
+  text-shadow: 2px 2px 7px black;
+}
 
+#appContainer{
+  height:800px;
+  width:fit-content;
+  background: #55cc55;
+  margin:auto;
+}
+
+.Booker{
+  display:inline-block;
+  margin: 20px;
 }
 
 .optionImage{
   width:200px;
-  height:260px;
+  height:240px;
+}
+
+.bookButton{
+  float:left;
+}
+.unbookButton{
+  float:right;
 }

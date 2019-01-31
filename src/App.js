@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import './vacationStyles.css';
+import Header from './header.js';
 
 const unbooked='unbooked';
 const booked='booked';
@@ -81,27 +82,32 @@ const mapDispatchToProps=(dispatch)=>{
 
 // store.dispatch(bookActionCreator('flight'));
 
-class BookerButton extends Component{
+class BookerButtons extends Component{
   render(){
     return(
-      <div className='BookerButton'>
+      <div className='Booker'>
         <img className='optionImage' src={this.props.image}/><br/>
-        <button onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
-        <button onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
+        <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
+        <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
       </div>
     )
   }
 }
 //()=>this.props.book('flight')
-const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButton);
+const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
 
 const App=()=>{
   return(
-    <Provider store={store}>
-      <Booker booking={flight} image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
-      <Booker booking={destination} image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
-      <Booker booking={hotel} image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
-    </Provider>
+    <div>
+      <Header/>
+      <Provider store={store}>
+        <div id='appContainer'>
+          <Booker booking={flight} image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
+          <Booker booking={destination} image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+          <Booker booking={hotel} image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
+        </div>
+      </Provider>
+    </div>
   )
 }
 
