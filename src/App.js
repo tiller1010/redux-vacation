@@ -80,8 +80,6 @@ const mapDispatchToProps=(dispatch)=>{
   }
 }
 
-// store.dispatch(bookActionCreator('flight'));
-
 class BookerButtons extends Component{
   render(){
     return(

@@ -31,6 +31,9 @@ body{
   margin:auto;
 }
 
+#DisplayStatus{
+  text-align: center;
+}
 #DisplayStatus h3{
   display: inline-block;
   margin: 10px;
