@@ -83,6 +83,24 @@ const sliderReducer=(state=sliderInitialState,action)=>{
         case flightSlide:
           if(state.flightSlider==0) return state;
           return Object.assign({},state,{flightSlider:state.flightSlider-1})
+        case destinationSlide:
+          if(state.destinationSlider==0) return state;
+          return Object.assign({},state,{destinationSlider:state.destinationSlider-1})
+        case hotelSlide:
+          if(state.hotelSlider==0) return state;
+          return Object.assign({},state,{hotelSlider:state.hotelSlider-1})
+      }
+    case slideRight:
+      switch(action.payload){
+        case flightSlide:
+          // if(state.flightSlider==0) return state;
+          return Object.assign({},state,{flightSlider:state.flightSlider+1})
+        case destinationSlide:
+          // if(state.destinationSlider==0) return state;
+          return Object.assign({},state,{destinationSlider:state.destinationSlider+1})
+        case hotelSlide:
+          // if(state.hotelSlider==0) return state;
+          return Object.assign({},state,{hotelSlider:state.hotelSlider+1})
       }
     default:
       return state;
