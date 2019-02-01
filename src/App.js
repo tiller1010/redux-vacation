@@ -15,9 +15,6 @@ const destination='destination';
 const hotel='hotel';
 const slideLeft='slideLeft';
 const slideRight='slideRight';
-const flightSlide='flightSlide';
-const destinationSlide='destinationSlide';
-const hotelSlide='hotelSlide';
 
 const bookInitialState={
   flightStatus: unbooked,
@@ -80,25 +77,25 @@ const sliderReducer=(state=sliderInitialState,action)=>{
   switch(action.type){
     case slideLeft:
       switch(action.payload){
-        case flightSlide:
+        case flight:
           if(state.flightSlider==0) return state;
           return Object.assign({},state,{flightSlider:state.flightSlider-1})
-        case destinationSlide:
+        case destination:
           if(state.destinationSlider==0) return state;
           return Object.assign({},state,{destinationSlider:state.destinationSlider-1})
-        case hotelSlide:
+        case hotel:
           if(state.hotelSlider==0) return state;
           return Object.assign({},state,{hotelSlider:state.hotelSlider-1})
       }
     case slideRight:
       switch(action.payload){
-        case flightSlide:
+        case flight:
           // if(state.flightSlider==0) return state;
           return Object.assign({},state,{flightSlider:state.flightSlider+1})
-        case destinationSlide:
+        case destination:
           // if(state.destinationSlider==0) return state;
           return Object.assign({},state,{destinationSlider:state.destinationSlider+1})
-        case hotelSlide:
+        case hotel:
           // if(state.hotelSlider==0) return state;
           return Object.assign({},state,{hotelSlider:state.hotelSlider+1})
       }
@@ -122,7 +119,10 @@ const mapStateToProps=(state)=>{
   return {
     flightStatus: state.bookReducer.flightStatus,
     destinationStatus: state.bookReducer.destinationStatus,
-    hotelStatus: state.bookReducer.hotelStatus
+    hotelStatus: state.bookReducer.hotelStatus,
+    flightSlider: state.sliderReducer.flightSlider,
+    destinationSlider: state.sliderReducer.destinationSlider,
+    hotelSlider: state.sliderReducer.hotelSlider
   }
 }
 
@@ -134,7 +134,12 @@ const mapDispatchToProps=(dispatch)=>{
     unbook:function(payload){
       dispatch(unBookActionCreator(payload))
     },
-
+    slideLeft:function(payload){
+      dispatch(slideLeftActionCreator(payload))
+    },
+    slideRight:function(payload){
+      dispatch(slideRightActionCreator(payload))
+    }
   }
 }
 
@@ -144,8 +149,8 @@ class BookerButtons extends Component{
       <div className='Booker'>
         <h2>{this.props.title}</h2>
         <img className='optionImage' src={this.props.image}/><br/>
-        <button className='leftButton'>&lt;</button>
-        <button className='rightButton'>&gt;</button>
+        <button className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking)}>&lt;</button>
+        <button className='rightButton' onClick={()=>this.props.slideRight(this.props.booking)}>&gt;</button>
         <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
         <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
       </div>
@@ -182,10 +187,20 @@ class DisplayStatus extends Component{
 const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
 const Display = connect(mapStateToProps)(DisplayStatus);
 
-const flightOptions=[
-  <Booker booking={flight} title='Trusty Airlines' image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>,
-  <Booker booking={flight} title='NotTrusty Airlines' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
-]
+const FlightOptions=(props)=>{
+  switch(props.flightSlider){
+    case 0:
+      return(
+        <Booker booking={flight} title='Trusty Airlines' image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
+      )
+    case 1:
+      return(
+        <Booker booking={flight} title='NotTrusty Airlines' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+      )
+    default: return this;
+  }
+}
+const Fly=connect(mapStateToProps)(FlightOptions);
 
 const App=()=>{
   return(
@@ -194,7 +209,7 @@ const App=()=>{
       <Provider store={store}>
         <Display/>
         <div id='appContainer'>
-          {flightOptions[0]}
+          <Fly/>
           <Booker booking={destination} title='Aruba' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
           <Booker booking={hotel} title='Holiday Inn' image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
         </div>
