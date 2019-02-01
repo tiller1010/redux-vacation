@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {createStore} from 'redux';
+import {combineReducers, createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import './vacationStyles.css';
 import checkmark from './checkmark.png';
@@ -13,12 +13,22 @@ const book='book';
 const flight='flight';
 const destination='destination';
 const hotel='hotel';
+const slideLeft='slideLeft';
+const slideRight='slideRight';
+const flightSlide='flightSlide';
+const destinationSlide='destinationSlide';
+const hotelSlide='hotelSlide';
 
-const initialState={
+const bookInitialState={
   flightStatus: unbooked,
   destinationStatus: unbooked,
-  hotelStatus: unbooked,
-  flightSlider: 0
+  hotelStatus: unbooked
+}
+
+const sliderInitialState={
+  flightSlider: 0,
+  destinationSlider: 0,
+  hotelSlider: 0
 }
 
 const bookActionCreator=(payload)=>{
@@ -29,7 +39,15 @@ const unBookActionCreator=(payload)=>{
   return {type:unbook, payload: payload}
 }
 
-const bookReducer=(state=initialState,action)=>{
+const slideLeftActionCreator=(payload)=>{
+  return {type:slideLeft, payload: payload}
+}
+
+const slideRightActionCreator=(payload)=>{
+  return {type:slideRight, payload: payload}
+}
+
+const bookReducer=(state=bookInitialState,action)=>{
   switch(action.type){
     case book:
       switch(action.payload){
@@ -58,7 +76,25 @@ const bookReducer=(state=initialState,action)=>{
   }
 }
 
-const store=createStore(bookReducer);
+const sliderReducer=(state=sliderInitialState,action)=>{
+  switch(action.type){
+    case slideLeft:
+      switch(action.payload){
+        case flightSlide:
+          if(state.flightSlider==0) return state;
+          return Object.assign({},state,{flightSlider:state.flightSlider-1})
+      }
+    default:
+      return state;
+  }
+}
+
+const rootReducer=combineReducers({
+  bookReducer:bookReducer,
+  sliderReducer:sliderReducer
+})
+
+const store=createStore(rootReducer);
 
 store.subscribe(()=>{
   console.log('State changed to',store.getState());
@@ -66,10 +102,9 @@ store.subscribe(()=>{
 
 const mapStateToProps=(state)=>{
   return {
-    flightStatus: state.flightStatus,
-    destinationStatus: state.destinationStatus,
-    hotelStatus: state.hotelStatus,
-    flightSlider: 0
+    flightStatus: state.bookReducer.flightStatus,
+    destinationStatus: state.bookReducer.destinationStatus,
+    hotelStatus: state.bookReducer.hotelStatus
   }
 }
 
