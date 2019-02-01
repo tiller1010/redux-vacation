@@ -17,7 +17,8 @@ const hotel='hotel';
 const initialState={
   flightStatus: unbooked,
   destinationStatus: unbooked,
-  hotelStatus: unbooked
+  hotelStatus: unbooked,
+  flightSlider: 0
 }
 
 const bookActionCreator=(payload)=>{
@@ -28,7 +29,7 @@ const unBookActionCreator=(payload)=>{
   return {type:unbook, payload: payload}
 }
 
-const reducer=(state=initialState,action)=>{
+const bookReducer=(state=initialState,action)=>{
   switch(action.type){
     case book:
       switch(action.payload){
@@ -57,7 +58,7 @@ const reducer=(state=initialState,action)=>{
   }
 }
 
-const store=createStore(reducer);
+const store=createStore(bookReducer);
 
 store.subscribe(()=>{
   console.log('State changed to',store.getState());
@@ -67,7 +68,8 @@ const mapStateToProps=(state)=>{
   return {
     flightStatus: state.flightStatus,
     destinationStatus: state.destinationStatus,
-    hotelStatus: state.hotelStatus
+    hotelStatus: state.hotelStatus,
+    flightSlider: 0
   }
 }
 
@@ -78,7 +80,8 @@ const mapDispatchToProps=(dispatch)=>{
     },
     unbook:function(payload){
       dispatch(unBookActionCreator(payload))
-    }
+    },
+
   }
 }
 
@@ -88,6 +91,8 @@ class BookerButtons extends Component{
       <div className='Booker'>
         <h2>{this.props.title}</h2>
         <img className='optionImage' src={this.props.image}/><br/>
+        <button className='leftButton'>&lt;</button>
+        <button className='rightButton'>&gt;</button>
         <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
         <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
       </div>
@@ -124,6 +129,11 @@ class DisplayStatus extends Component{
 const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
 const Display = connect(mapStateToProps)(DisplayStatus);
 
+const flightOptions=[
+  <Booker booking={flight} title='Trusty Airlines' image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>,
+  <Booker booking={flight} title='NotTrusty Airlines' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+]
+
 const App=()=>{
   return(
     <div>
@@ -131,7 +141,7 @@ const App=()=>{
       <Provider store={store}>
         <Display/>
         <div id='appContainer'>
-          <Booker booking={flight} title='Trusty Airlines' image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
+          {flightOptions[0]}
           <Booker booking={destination} title='Aruba' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
           <Booker booking={hotel} title='Holiday Inn' image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
         </div>

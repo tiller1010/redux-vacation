@@ -25,7 +25,7 @@ body{
 }
 
 #appContainer{
-  height:800px;
+  height:500px;
   width:fit-content;
   background: #55cc55;
   margin:auto;
@@ -68,4 +68,19 @@ body{
 }
 .unbookButton{
   float:right;
+}
+
+.leftButton{
+  position: relative;
+  bottom:150px;
+  right:90px;
+  height:70px;
+  font-size: 20px;
+}
+.rightButton{
+  position: relative;
+  bottom:150px;
+  left:75px;
+  height:70px;
+  font-size: 20px;
 }
