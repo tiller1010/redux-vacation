@@ -78,25 +78,25 @@ const sliderReducer=(state=sliderInitialState,action)=>{
     case slideLeft:
       switch(action.payload){
         case flight:
-          if(state.flightSlider==0) return state;
+          if(state.flightSlider===0) return state;
           return Object.assign({},state,{flightSlider:state.flightSlider-1})
         case destination:
-          if(state.destinationSlider==0) return state;
+          if(state.destinationSlider===0) return state;
           return Object.assign({},state,{destinationSlider:state.destinationSlider-1})
         case hotel:
-          if(state.hotelSlider==0) return state;
+          if(state.hotelSlider===0) return state;
           return Object.assign({},state,{hotelSlider:state.hotelSlider-1})
       }
     case slideRight:
       switch(action.payload){
         case flight:
-          // if(state.flightSlider==0) return state;
+          if(state.flightSlider===2) return state;
           return Object.assign({},state,{flightSlider:state.flightSlider+1})
         case destination:
-          // if(state.destinationSlider==0) return state;
+          if(state.destinationSlider===2) return state;
           return Object.assign({},state,{destinationSlider:state.destinationSlider+1})
         case hotel:
-          // if(state.hotelSlider==0) return state;
+          if(state.hotelSlider===2) return state;
           return Object.assign({},state,{hotelSlider:state.hotelSlider+1})
       }
     default:
@@ -184,9 +184,6 @@ class DisplayStatus extends Component{
   }
 }
 
-const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
-const Display = connect(mapStateToProps)(DisplayStatus);
-
 const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
@@ -195,12 +192,57 @@ const FlightOptions=(props)=>{
       )
     case 1:
       return(
-        <Booker booking={flight} title='NotTrusty Airlines' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+        <Booker booking={flight} title='Liberty Airlines' image="https://www.libertytravel.com/sites/default/files/styles/full_size/public/flight-hero.jpg?itok=hhscHSGZ"/>
+      )
+    case 2:
+      return(
+        <Booker booking={flight} title='Distance Airlines' image="https://s3.r29static.com//bin/entry/90c/0,0,2000,2400/720x864,80/2014524/image.jpg"/>
       )
     default: return this;
   }
 }
-const Fly=connect(mapStateToProps)(FlightOptions);
+
+const DestinationOptions=(props)=>{
+  switch(props.destinationSlider){
+    case 0:
+      return(
+        <Booker booking={destination} title='Aruba' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+      )
+    case 1:
+      return(
+        <Booker booking={destination} title='Fiji' image="https://cdn.newsapi.com.au/image/v1/91c1263a2a357b3673af8ff8362c0c8d?width=1024"/>
+      )
+    case 2:
+      return(
+        <Booker booking={destination} title='Costa Rica' image="https://kippewa.com/wp-content/uploads/sites/11/2017/08/costa-rica-waterfall.jpg"/>
+      )
+    default: return this;
+  }
+}
+
+const HotelOptions=(props)=>{
+  switch(props.hotelSlider){
+    case 0:
+      return(
+        <Booker booking={hotel} title='Holiday Inn' image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
+      )
+    case 1:
+      return(
+        <Booker booking={hotel} title='Fancies Hotel' image="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/text-with-image-square/hotel-building-pool.jpg/_jcr_content/renditions/cq5dam.web.600.600.jpeg"/>
+      )
+    case 2:
+      return(
+        <Booker booking={hotel} title='JW Marriott' image="https://images.trvl-media.com/hotels/5000000/4270000/4268800/4268725/04571eea_z.jpg"/>
+      )
+    default: return this;
+  }
+}
+
+const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
+const Display = connect(mapStateToProps)(DisplayStatus);
+const Fly = connect(mapStateToProps)(FlightOptions);
+const Vacation = connect(mapStateToProps)(DestinationOptions);
+const Stay = connect(mapStateToProps)(HotelOptions);
 
 const App=()=>{
   return(
@@ -210,8 +252,8 @@ const App=()=>{
         <Display/>
         <div id='appContainer'>
           <Fly/>
-          <Booker booking={destination} title='Aruba' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
-          <Booker booking={hotel} title='Holiday Inn' image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
+          <Vacation/>
+          <Stay/>
         </div>
       </Provider>
     </div>
