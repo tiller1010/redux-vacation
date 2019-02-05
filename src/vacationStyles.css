@@ -126,8 +126,15 @@ body{
     bottom:20px;
     line-height: 50px;
     margin-left: 40px;
+    margin-bottom: -30px;
   }
   #headingStripe{
     width:105%;
+  }
+  .Booker{
+    display: block;
+  }
+  #appContainer{
+    padding:0px 20% 0px 20%;
   }
 }
