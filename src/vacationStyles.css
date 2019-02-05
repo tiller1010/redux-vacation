@@ -129,12 +129,19 @@ body{
     margin-bottom: -30px;
   }
   #headingStripe{
-    width:105%;
+    width:120%;
   }
   .Booker{
     display: block;
   }
   #appContainer{
     padding:0px 20% 0px 20%;
+  }
+}
+
+@media only screen and (max-width:320px){
+  .Header{
+    font-size: 12px;
+    margin-left: 30px;
   }
 }
