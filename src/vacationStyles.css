@@ -66,9 +66,31 @@ body{
 
 .bookButton{
   float:left;
+  background: #9f9;
+  font-weight:bold;
+  color:#222;
+  padding:6px;
+  border:none;
+  border-radius:3px;
+}
+.bookButton:hover{
+  background: #5f5;
+  box-shadow: 2px 2px green;
+  cursor:pointer;
 }
 .unbookButton{
   float:right;
+  background: #f99;
+  font-weight:bold;
+  color:#222;
+  padding:6px;
+  border:none;
+  border-radius:3px;
+}
+.unbookButton:hover{
+  background: #f55;
+  box-shadow: 2px 2px red;
+  cursor:pointer;
 }
 
 .leftButton{
@@ -77,6 +99,12 @@ body{
   right:90px;
   height:70px;
   font-size: 20px;
+  background: #afa;
+  border: none;
+}
+.leftButton:hover{
+  background-color: #3f3;
+  cursor:pointer;
 }
 .rightButton{
   position: relative;
@@ -84,6 +112,12 @@ body{
   left:75px;
   height:70px;
   font-size: 20px;
+  background: #afa;
+  border: none;
+}
+.rightButton:hover{
+  background-color: #3f3;
+  cursor:pointer;
 }
 
 @media only screen and (max-width:768px){
