@@ -125,17 +125,16 @@ body{
     font-size: 14px;
     bottom:20px;
     line-height: 50px;
-    margin-left: 40px;
+    margin-left: 55px;
     margin-bottom: -30px;
   }
   #headingStripe{
-    width:120%;
-  }
-  .Booker{
-    display: block;
+    width:100%;
+    right:25px;
   }
   #appContainer{
-    padding:0px 20% 0px 20%;
+    text-align: center;
+
   }
 }
 
@@ -143,5 +142,8 @@ body{
   .Header{
     font-size: 12px;
     margin-left: 30px;
+  }
+  #DisplayStatus{
+    font-size: 13px;
   }
 }
