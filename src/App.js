@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {combineReducers, createStore} from 'redux';
+import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import './vacationStyles.css';
 import checkmark from './checkmark.png';
 import xmark from './xmark.png';
 import Header from './header.js';
+import rootReducer from './reducers.js';
 
 const unbooked='unbooked';
 const booked='booked';
@@ -16,17 +17,11 @@ const hotel='hotel';
 const slideLeft='slideLeft';
 const slideRight='slideRight';
 
-const bookInitialState={
-  flightStatus: unbooked,
-  destinationStatus: unbooked,
-  hotelStatus: unbooked
-}
+const store=createStore(rootReducer);
 
-const sliderInitialState={
-  flightSlider: 0,
-  destinationSlider: 0,
-  hotelSlider: 0
-}
+store.subscribe(()=>{
+  console.log('State changed to',store.getState());
+});
 
 const bookActionCreator=(payload)=>{
   return {type:book, payload: payload}
@@ -43,77 +38,6 @@ const slideLeftActionCreator=(payload)=>{
 const slideRightActionCreator=(payload)=>{
   return {type:slideRight, payload: payload}
 }
-
-const bookReducer=(state=bookInitialState,action)=>{
-  switch(action.type){
-    case book:
-      switch(action.payload){
-        case flight:
-          return Object.assign({},state,{flightStatus: booked});
-        case destination:
-          return Object.assign({},state,{destinationStatus: booked});
-        case hotel:
-          return Object.assign({},state,{hotelStatus: booked});
-        default:
-          return state;
-      }
-    case unbook:
-      switch(action.payload){
-        case flight:
-          return Object.assign({},state,{flightStatus: unbooked});
-        case destination:
-          return Object.assign({},state,{destinationStatus: unbooked});
-        case hotel:
-          return Object.assign({},state,{hotelStatus: unbooked});
-        default:
-          return state;
-      }
-    default:
-      return state;
-  }
-}
-
-const sliderReducer=(state=sliderInitialState,action)=>{
-  switch(action.type){
-    case slideLeft:
-      switch(action.payload){
-        case flight:
-          if(state.flightSlider===0) return state;
-          return Object.assign({},state,{flightSlider:state.flightSlider-1})
-        case destination:
-          if(state.destinationSlider===0) return state;
-          return Object.assign({},state,{destinationSlider:state.destinationSlider-1})
-        case hotel:
-          if(state.hotelSlider===0) return state;
-          return Object.assign({},state,{hotelSlider:state.hotelSlider-1})
-      }
-    case slideRight:
-      switch(action.payload){
-        case flight:
-          if(state.flightSlider===2) return state;
-          return Object.assign({},state,{flightSlider:state.flightSlider+1})
-        case destination:
-          if(state.destinationSlider===2) return state;
-          return Object.assign({},state,{destinationSlider:state.destinationSlider+1})
-        case hotel:
-          if(state.hotelSlider===2) return state;
-          return Object.assign({},state,{hotelSlider:state.hotelSlider+1})
-      }
-    default:
-      return state;
-  }
-}
-
-const rootReducer=combineReducers({
-  bookReducer:bookReducer,
-  sliderReducer:sliderReducer
-})
-
-const store=createStore(rootReducer);
-
-store.subscribe(()=>{
-  console.log('State changed to',store.getState());
-});
 
 const mapStateToProps=(state)=>{
   return {
