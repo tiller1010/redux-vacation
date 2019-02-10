@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/redux-vacation/static/js/runtime~main.4a6edf91.js"
   },
   {
-    "revision": "4ffaa45ba1f95db2fafa",
-    "url": "/redux-vacation/static/js/main.4ffaa45b.chunk.js"
+    "revision": "0edb4f75a3c649e2f7d9",
+    "url": "/redux-vacation/static/js/main.0edb4f75.chunk.js"
   },
   {
     "revision": "0f890ca416887fe5cf0e",
     "url": "/redux-vacation/static/js/1.0f890ca4.chunk.js"
   },
   {
-    "revision": "4ffaa45ba1f95db2fafa",
-    "url": "/redux-vacation/static/css/main.b19f3176.chunk.css"
+    "revision": "0edb4f75a3c649e2f7d9",
+    "url": "/redux-vacation/static/css/main.46b8d62a.chunk.css"
   },
   {
-    "revision": "802259668bcaa9d37e1c6d4c2a1661f9",
+    "revision": "dbda4c5f72ead748f61861172206b809",
     "url": "/redux-vacation/index.html"
   }
 ];
