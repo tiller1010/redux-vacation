@@ -100,9 +100,9 @@ class DisplayStatus extends Component{
   render(){
     return(
       <div id='DisplayStatus'>
-        <h3>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h3>
-        <h3>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h3>
-        <h3>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h3>
+        <h4 id='displayFlight' class='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h4>
+        <h4 id='displayDestination' class='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h4>
+        <h4 id='displayHotel' class='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h4>
       </div>
     )
   }

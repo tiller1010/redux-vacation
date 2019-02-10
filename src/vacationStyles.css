@@ -33,11 +33,27 @@ body{
 }
 
 #DisplayStatus{
-  text-align: center;
+  width:70%;
+  margin:auto;
+  height:150px;
 }
-#DisplayStatus h3{
+ .statusDisplays{
+  position: relative;
   display: inline-block;
-  margin: 10px;
+  top:90px;
+}
+#displayFlight{
+  margin-left: 10px;
+}
+#displayDestination{
+  position: absolute;
+  top:243px;
+  left: 40%;
+  margin-right: 30%;
+}
+#displayHotel{
+  float:right;
+  margin-right: 10px;
 }
 
 .Booker{
@@ -120,6 +136,19 @@ body{
   cursor:pointer;
 }
 
+@media only screen and (max-width:1050px){
+  #DisplayStatus{
+    width:90%;
+  }
+  .statusDisplays{
+    font-size: 14px;
+  }
+  #displayDestination{
+    left: 38%;
+    margin-right: 10%;
+  }
+}
+
 @media only screen and (max-width:768px){
   .Header{
     font-size: 14px;
@@ -134,7 +163,31 @@ body{
   }
   #appContainer{
     text-align: center;
+  }
+  #DisplayStatus{
+    width:100%;
+  }
+  .statusDisplays{
+    font-size: 13px;
+  }
+  #displayDestination{
+    left:35%;
+    margin-right: 0px;
+    top:199px;
+  }
+  .Booker{
+    margin: 0px 100px 0px 100px;
+  }
+}
 
+@media only screen and (max-width:620px){
+  .statusDisplays{
+    display: block;
+  }
+  #displayFlight, #displayDestination, #displayHotel{
+    position: static;
+    margin:10px 180px 10px 10px;
+    float: left;
   }
 }
 
@@ -142,8 +195,5 @@ body{
   .Header{
     font-size: 12px;
     margin-left: 30px;
-  }
-  #DisplayStatus{
-    font-size: 13px;
   }
 }
