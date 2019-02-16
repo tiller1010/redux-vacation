@@ -6,6 +6,7 @@ import checkmark from './checkmark.png';
 import xmark from './xmark.png';
 import Header from './header.js';
 import Footer from './footer.js';
+import Circles from './circles.js';
 import rootReducer from './reducers.js';
 
 const unbooked='unbooked';
@@ -106,13 +107,21 @@ class DisplayStatus extends Component{
     return(
       <div id='DisplayStatus'>
         <h4 id='displayFlight' className='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/>
-          <div className='choiceContainer'>{this.props.flightChoice!==none && <h3 className='choice'>{this.props.flightChoice}</h3>}</div>
+          <div className='choiceContainer'>
+            {this.props.flightChoice!==none && <h3 className='choice'>{this.props.flightChoice}</h3>}
+            {this.props.flightChoice!==none && this.props.destinationChoice!==none && <Circles/>}
+          </div>
         </h4>
         <h4 id='displayDestination' className='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/>
-          <div className='choiceContainer'>{this.props.destinationChoice!==none && <h3 className='choice'>{this.props.destinationChoice}</h3>}</div>
+          <div className='choiceContainer'>
+            {this.props.destinationChoice!==none && <h3 id='destinationChoice' className='choice'>{this.props.destinationChoice}</h3>}
+            {this.props.destinationChoice!==none && this.props.hotelChoice!==none && <Circles/>}
+          </div>
         </h4>
         <h4 id='displayHotel' className='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/>
-          <div className='choiceContainer'>{this.props.hotelChoice!==none && <h3 className='choice'>{this.props.hotelChoice}</h3>}</div>
+          <div className='choiceContainer'>
+            {this.props.hotelChoice!==none && <h3 className='choice'>{this.props.hotelChoice}</h3>}
+          </div>
         </h4>
       </div>
     )
