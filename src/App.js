@@ -5,6 +5,7 @@ import './vacationStyles.css';
 import checkmark from './checkmark.png';
 import xmark from './xmark.png';
 import Header from './header.js';
+import Footer from './footer.js';
 import rootReducer from './reducers.js';
 
 const unbooked='unbooked';
@@ -112,15 +113,15 @@ const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
       return(
-        <Booker booking={flight} title='Trusty Airlines' image="https://www.gannett-cdn.com/presto/2018/12/04/PLOU/e1a042e7-402a-413e-913d-c16e0d0b115f-GettyImages-912360406.jpg?width=534&height=401&fit=bounds&auto=webp"/>
+        <Booker booking={flight} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={flight} title='Liberty Airlines' image="https://www.libertytravel.com/sites/default/files/styles/full_size/public/flight-hero.jpg?itok=hhscHSGZ"/>
+        <Booker booking={flight} title='Liberty Airlines' image={require("./images/libertyAirlines.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={flight} title='Distance Airlines' image="https://s3.r29static.com//bin/entry/90c/0,0,2000,2400/720x864,80/2014524/image.jpg"/>
+        <Booker booking={flight} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
       )
     default: return this;
   }
@@ -130,15 +131,15 @@ const DestinationOptions=(props)=>{
   switch(props.destinationSlider){
     case 0:
       return(
-        <Booker booking={destination} title='Aruba' image="https://img1.coastalliving.timeinc.net/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/2018/01/main/aruba-flamingo-beach-685013591.jpg?itok=D2VWh31m"/>
+        <Booker booking={destination} title='Aruba' image={require("./images/aruba.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={destination} title='Fiji' image="https://cdn.newsapi.com.au/image/v1/91c1263a2a357b3673af8ff8362c0c8d?width=1024"/>
+        <Booker booking={destination} title='Fiji' image={require("./images/fiji.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={destination} title='Costa Rica' image="https://kippewa.com/wp-content/uploads/sites/11/2017/08/costa-rica-waterfall.jpg"/>
+        <Booker booking={destination} title='Costa Rica' image={require("./images/costarica.jpg")}/>
       )
     default: return this;
   }
@@ -148,15 +149,15 @@ const HotelOptions=(props)=>{
   switch(props.hotelSlider){
     case 0:
       return(
-        <Booker booking={hotel} title='Holiday Inn' image="http://ihg.scene7.com/is/image/ihg/holiday-inn-the-colony-4629618286-4x3"/>
+        <Booker booking={hotel} title='Holiday Inn' image={require("./images/holidayInn.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={hotel} title='Fancies Hotel' image="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/text-with-image-square/hotel-building-pool.jpg/_jcr_content/renditions/cq5dam.web.600.600.jpeg"/>
+        <Booker booking={hotel} title='Fancies Hotel' image={require("./images/fancies.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={hotel} title='JW Marriott' image="https://images.trvl-media.com/hotels/5000000/4270000/4268800/4268725/04571eea_z.jpg"/>
+        <Booker booking={hotel} title='JW Marriott' image={require("./images/jwMarriott.jpg")}/>
       )
     default: return this;
   }
@@ -179,6 +180,7 @@ const App=()=>{
           <Vacation/>
           <Stay/>
         </div>
+        <Footer/>
       </Provider>
     </div>
   )

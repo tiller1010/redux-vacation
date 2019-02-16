@@ -135,6 +135,13 @@ body{
   background-color: #3f3;
   cursor:pointer;
 }
+.Footer{
+  border: solid black;
+  background: white;
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+}
 
 @media only screen and (max-width:1050px){
   #DisplayStatus{
@@ -174,6 +181,9 @@ body{
     left:35%;
     margin-right: 0px;
     top:199px;
+  }
+  .Footer{
+    font-size: 13px;
   }
 }
 
