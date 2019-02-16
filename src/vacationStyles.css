@@ -42,6 +42,16 @@ body{
   display: inline-block;
   top:90px;
 }
+.choice{
+  position: relative;
+  bottom:100px;
+  color:white;
+  font-family: 'Krub', sans-serif;
+  text-shadow: 1px 1px 5px #559;
+  font-size: 18px;
+  font-style: italic;
+  left:17px;
+}
 #displayFlight{
   margin-left: 10px;
 }
@@ -49,7 +59,6 @@ body{
   position: absolute;
   top:243px;
   left: 40%;
-  margin-right: 30%;
 }
 #displayHotel{
   float:right;
@@ -190,6 +199,17 @@ body{
 @media only screen and (max-width:620px){
   .statusDisplays{
     display: block;
+    position: relative;
+  }
+  .choiceContainer{
+    position: relative;
+    top:120px;
+    left:200px;
+  }
+  .choice{
+    position: absolute;
+    width:150px;
+    text-align: right;
   }
   #displayFlight, #displayDestination, #displayHotel{
     position: static;

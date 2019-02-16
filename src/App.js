@@ -17,6 +17,7 @@ const destination='destination';
 const hotel='hotel';
 const slideLeft='slideLeft';
 const slideRight='slideRight';
+const none='none';
 
 const store=createStore(rootReducer);
 
@@ -45,6 +46,9 @@ const mapStateToProps=(state)=>{
     flightStatus: state.bookReducer.flightStatus,
     destinationStatus: state.bookReducer.destinationStatus,
     hotelStatus: state.bookReducer.hotelStatus,
+    flightChoice: state.bookReducer.flightChoice,
+    destinationChoice: state.bookReducer.destinationChoice,
+    hotelChoice: state.bookReducer.hotelChoice,
     flightSlider: state.sliderReducer.flightSlider,
     destinationSlider: state.sliderReducer.destinationSlider,
     hotelSlider: state.sliderReducer.hotelSlider
@@ -101,9 +105,15 @@ class DisplayStatus extends Component{
   render(){
     return(
       <div id='DisplayStatus'>
-        <h4 id='displayFlight' className='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h4>
-        <h4 id='displayDestination' className='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h4>
-        <h4 id='displayHotel' className='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h4>
+        <h4 id='displayFlight' className='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/>
+          <div className='choiceContainer'>{this.props.flightChoice!==none && <h3 className='choice'>{this.props.flightChoice}</h3>}</div>
+        </h4>
+        <h4 id='displayDestination' className='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/>
+          <div className='choiceContainer'>{this.props.destinationChoice!==none && <h3 className='choice'>{this.props.destinationChoice}</h3>}</div>
+        </h4>
+        <h4 id='displayHotel' className='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/>
+          <div className='choiceContainer'>{this.props.hotelChoice!==none && <h3 className='choice'>{this.props.hotelChoice}</h3>}</div>
+        </h4>
       </div>
     )
   }
