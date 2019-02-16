@@ -101,9 +101,9 @@ class DisplayStatus extends Component{
   render(){
     return(
       <div id='DisplayStatus'>
-        <h4 id='displayFlight' class='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h4>
-        <h4 id='displayDestination' class='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h4>
-        <h4 id='displayHotel' class='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h4>
+        <h4 id='displayFlight' className='statusDisplays'>Your flight is {this.props.flightStatus}<Checkmark checked={this.props.flightStatus}/></h4>
+        <h4 id='displayDestination' className='statusDisplays'>Your destination is {this.props.destinationStatus}<Checkmark checked={this.props.destinationStatus}/></h4>
+        <h4 id='displayHotel' className='statusDisplays'>Your hotel is {this.props.hotelStatus}<Checkmark checked={this.props.hotelStatus}/></h4>
       </div>
     )
   }
@@ -113,15 +113,15 @@ const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
       return(
-        <Booker booking={{category:flight, choice:'trusty'}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'Trusty Airlines'}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={{category:flight, choice:'liberty'}} title='Liberty Airlines' image={require("./images/libertyAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'Liberty Airlines'}} title='Liberty Airlines' image={require("./images/libertyAirlines.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={{category:flight, choice:'distance'}} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'Distance Airlines'}} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
       )
     default: return this;
   }
@@ -131,15 +131,15 @@ const DestinationOptions=(props)=>{
   switch(props.destinationSlider){
     case 0:
       return(
-        <Booker booking={destination} title='Aruba' image={require("./images/aruba.jpg")}/>
+        <Booker booking={{category:destination, choice:'Aruba'}} title='Aruba' image={require("./images/aruba.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={destination} title='Fiji' image={require("./images/fiji.jpg")}/>
+        <Booker booking={{category:destination, choice:'Fiji'}} title='Fiji' image={require("./images/fiji.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={destination} title='Costa Rica' image={require("./images/costarica.jpg")}/>
+        <Booker booking={{category:destination, choice:'Costa Rica'}} title='Costa Rica' image={require("./images/costarica.jpg")}/>
       )
     default: return this;
   }
@@ -149,15 +149,15 @@ const HotelOptions=(props)=>{
   switch(props.hotelSlider){
     case 0:
       return(
-        <Booker booking={hotel} title='Holiday Inn' image={require("./images/holidayInn.jpg")}/>
+        <Booker booking={{category:hotel, choice:'Holiday Inn'}} title='Holiday Inn' image={require("./images/holidayInn.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={hotel} title='Fancies Hotel' image={require("./images/fancies.jpg")}/>
+        <Booker booking={{category:hotel, choice:'Fancies Hotel'}} title='Fancies Hotel' image={require("./images/fancies.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={hotel} title='JW Marriott' image={require("./images/jwMarriott.jpg")}/>
+        <Booker booking={{category:hotel, choice:'JW Marriott'}} title='JW Marriott' image={require("./images/jwMarriott.jpg")}/>
       )
     default: return this;
   }

@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers} from 'redux';
 
 const unbooked='unbooked';
 const booked='booked';
@@ -9,11 +9,15 @@ const destination='destination';
 const hotel='hotel';
 const slideLeft='slideLeft';
 const slideRight='slideRight';
+const none='none';
 
 const bookInitialState={
   flightStatus: unbooked,
   destinationStatus: unbooked,
-  hotelStatus: unbooked
+  hotelStatus: unbooked,
+  flightChoice: none,
+  destinationChoice: none,
+  hotelChoice: none
 }
 
 const sliderInitialState={
@@ -60,20 +64,20 @@ const bookReducer=(state=bookInitialState,action)=>{
         case flight:
           return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice});
         case destination:
-          return Object.assign({},state,{destinationStatus: booked});
+          return Object.assign({},state,{destinationStatus: booked, destinationChoice: action.payload.choice});
         case hotel:
-          return Object.assign({},state,{hotelStatus: booked});
+          return Object.assign({},state,{hotelStatus: booked, hotelChoice: action.payload.choice});
         default:
           return state;
       }
     case unbook:
-      switch(action.payload){
+      switch(action.payload.category){
         case flight:
-          return Object.assign({},state,{flightStatus: unbooked});
+          return Object.assign({},state,{flightStatus: unbooked, flightChoice: none});
         case destination:
-          return Object.assign({},state,{destinationStatus: unbooked});
+          return Object.assign({},state,{destinationStatus: unbooked, destinationChoice: none});
         case hotel:
-          return Object.assign({},state,{hotelStatus: unbooked});
+          return Object.assign({},state,{hotelStatus: unbooked, hotelChoice: none});
         default:
           return state;
       }
