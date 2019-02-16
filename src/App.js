@@ -74,8 +74,8 @@ class BookerButtons extends Component{
       <div className='Booker'>
         <h2>{this.props.title}</h2>
         <img className='optionImage' src={this.props.image}/><br/>
-        <button className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking)}>&lt;</button>
-        <button className='rightButton' onClick={()=>this.props.slideRight(this.props.booking)}>&gt;</button>
+        <button className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking.category)}>&lt;</button>
+        <button className='rightButton' onClick={()=>this.props.slideRight(this.props.booking.category)}>&gt;</button>
         <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
         <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
       </div>
@@ -113,15 +113,15 @@ const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
       return(
-        <Booker booking={flight} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'trusty'}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
       )
     case 1:
       return(
-        <Booker booking={flight} title='Liberty Airlines' image={require("./images/libertyAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'liberty'}} title='Liberty Airlines' image={require("./images/libertyAirlines.jpg")}/>
       )
     case 2:
       return(
-        <Booker booking={flight} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'distance'}} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
       )
     default: return this;
   }

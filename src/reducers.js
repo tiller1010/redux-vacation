@@ -56,9 +56,9 @@ const sliderReducer=(state=sliderInitialState,action)=>{
 const bookReducer=(state=bookInitialState,action)=>{
   switch(action.type){
     case book:
-      switch(action.payload){
+      switch(action.payload.category){
         case flight:
-          return Object.assign({},state,{flightStatus: booked});
+          return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice});
         case destination:
           return Object.assign({},state,{destinationStatus: booked});
         case hotel:
