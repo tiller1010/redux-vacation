@@ -160,7 +160,7 @@ body{
   margin-top: 100px;
 }
 
-@media only screen and (max-width:1050px){
+@media only screen and (max-width:1120px){
   #DisplayStatus{
     width:90%;
   }
@@ -179,7 +179,7 @@ body{
   }
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:815px){
   .Header{
     font-size: 14px;
     bottom:20px;
@@ -218,12 +218,14 @@ body{
   .choiceContainer{
     position: relative;
     top:120px;
-    left:200px;
+    left:180px;
+
   }
   .choice{
     position: absolute;
-    width:150px;
+    width:170px;
     text-align: right;
+    white-space: nowrap;
   }
   #destinationChoice{
     left:14px;
