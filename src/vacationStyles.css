@@ -33,10 +33,13 @@ body{
 }
 
 #DisplayStatus{
+  position: sticky;
+  top:0px;
   width:70%;
   margin:auto;
   height:150px;
   background: #0e6;
+  z-index: 3;
 }
  .statusDisplays{
   position: relative;
@@ -65,8 +68,8 @@ body{
 }
 #displayDestination{
   position: absolute;
-  top:243px;
-  left: 42%;
+  left: 38%;
+  margin-top:20px;
 }
 #displayHotel{
   float:right;
@@ -173,6 +176,11 @@ body{
   }
 }
 
+@media only screen and (max-width:880px){
+  .Circles{
+    transform: translate(175px, -142px);}
+  }
+
 @media only screen and (max-width:830px){
   .Circles{
     display: none;
@@ -203,7 +211,7 @@ body{
   #displayDestination{
     left:35%;
     margin-right: 0px;
-    top:199px;
+    margin-top:18px
   }
   .Footer{
     font-size: 13px;
