@@ -35,7 +35,7 @@ body{
 #DisplayStatus{
   position: -webkit-sticky;
   position: sticky;
-  top:0px;
+  top:-30px;
   width:70%;
   margin:auto;
   height:150px;
@@ -157,10 +157,11 @@ body{
   cursor:pointer;
 }
 .Footer{
-  border: solid black;
+  border-top: solid black;
   background: white;
   text-align: center;
   width: 100%;
+  height:fit-content;
   margin-top: 100px;
 }
 
@@ -220,6 +221,10 @@ body{
 }
 
 @media only screen and (max-width:620px){
+  #DisplayStatus{
+    top:0px;
+  }
+
   .statusDisplays{
     display: block;
     position: relative;
