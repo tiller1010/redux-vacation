@@ -223,6 +223,11 @@ body{
 }
 
 @media only screen and (max-width:620px){
+
+  #headingStripe{
+    width:105%;
+  }
+
   #DisplayStatus{
     top:0px;
   }
@@ -256,10 +261,6 @@ body{
   .Header{
     font-size: 12px;
     margin-left:12%;
-  }
-
-  #headingStripe{
-    width:109%;
   }
 
   .statusDisplays{
