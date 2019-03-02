@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/redux-vacation/static/media/distanceAirlines.af132486.jpg"
   },
   {
-    "revision": "6f047a058f53cab710e8",
-    "url": "/redux-vacation/static/css/main.70be7fca.chunk.css"
+    "revision": "b1a214d144eb0c88b85d",
+    "url": "/redux-vacation/static/css/main.0767237d.chunk.css"
   },
   {
     "revision": "9072d5430048dd50ddef",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/redux-vacation/static/media/libertyAirlines.213e9b6c.jpg"
   },
   {
-    "revision": "6f047a058f53cab710e8",
-    "url": "/redux-vacation/static/js/main.6f047a05.chunk.js"
+    "revision": "b1a214d144eb0c88b85d",
+    "url": "/redux-vacation/static/js/main.b1a214d1.chunk.js"
   },
   {
     "revision": "f416a6abdd5e8d7fb14e33d45d14ef7e",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/redux-vacation/static/media/jwMarriott.d756b3fe.jpg"
   },
   {
-    "revision": "2936eb7edf85dc8f9c914c7e91143d7a",
+    "revision": "d4466fbb9dd18776658f3b49bec06831",
     "url": "/redux-vacation/index.html"
   }
 ];
