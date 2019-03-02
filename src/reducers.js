@@ -17,7 +17,8 @@ const bookInitialState={
   hotelStatus: unbooked,
   flightChoice: none,
   destinationChoice: none,
-  hotelChoice: none
+  hotelChoice: none,
+  totalCost: 0
 }
 
 const sliderInitialState={
@@ -62,7 +63,7 @@ const bookReducer=(state=bookInitialState,action)=>{
     case book:
       switch(action.payload.category){
         case flight:
-          return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice});
+          return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice, totalCost: state.totalCost += action.payload.cost});
         case destination:
           return Object.assign({},state,{destinationStatus: booked, destinationChoice: action.payload.choice});
         case hotel:

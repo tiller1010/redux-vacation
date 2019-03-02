@@ -19,7 +19,6 @@ const hotel='hotel';
 const slideLeft='slideLeft';
 const slideRight='slideRight';
 const none='none';
-
 const store=createStore(rootReducer);
 
 store.subscribe(()=>{
@@ -52,7 +51,8 @@ const mapStateToProps=(state)=>{
     hotelChoice: state.bookReducer.hotelChoice,
     flightSlider: state.sliderReducer.flightSlider,
     destinationSlider: state.sliderReducer.destinationSlider,
-    hotelSlider: state.sliderReducer.hotelSlider
+    hotelSlider: state.sliderReducer.hotelSlider,
+    totalCost: state.bookReducer.totalCost
   }
 }
 
@@ -123,6 +123,8 @@ class DisplayStatus extends Component{
             {this.props.hotelChoice!==none && <h3 className='choice'>{this.props.hotelChoice}</h3>}
           </div>
         </h4>
+
+        <h2 id='totalCost'>${this.props.totalCost}</h2>
       </div>
     )
   }
@@ -132,7 +134,7 @@ const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
       return(
-        <Booker booking={{category:flight, choice:'Trusty Airlines'}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
+        <Booker booking={{category:flight, choice:'Trusty Airlines', cost: 12}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
       )
     case 1:
       return(
