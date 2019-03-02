@@ -194,12 +194,13 @@ body{
     font-size: 14px;
     bottom:20px;
     line-height: 50px;
-    margin-left: 40px;
+    margin-left:10%;
     margin-bottom: -30px;
   }
   #headingStripe{
     width:100%;
-    right:25px;
+    margin:auto;
+
   }
   #appContainer{
     text-align: center;
@@ -208,6 +209,7 @@ body{
     width:100%;
   }
   .statusDisplays{
+    white-space: nowrap;
     font-size: 13px;
   }
   #displayDestination{
@@ -233,7 +235,6 @@ body{
     position: relative;
     top:120px;
     left:180px;
-
   }
   .choice{
     position: absolute;
@@ -251,9 +252,21 @@ body{
   }
 }
 
-@media only screen and (max-width:320px){
+@media only screen and (max-width:400px){
   .Header{
     font-size: 12px;
-    margin-left: 30px;
+    margin-left:12%;
+  }
+
+  #headingStripe{
+    width:106%;
+  }
+
+  .statusDisplays{
+    font-size: 12px;
+  }
+
+  .choiceContainer{
+    transform: translateX(-65px);
   }
 }
