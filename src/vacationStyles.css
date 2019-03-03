@@ -156,6 +156,11 @@ body{
   background-color: #3f3;
   cursor:pointer;
 }
+
+.lineSeperator{
+  display: none;
+}
+
 .Footer{
   border-top: solid black;
   background: white;
@@ -177,6 +182,9 @@ body{
   border: solid #5f8;
   border-width: 5px;
   border-radius: 0 0 0 50%;
+}
+.cost{
+  transform: translateX(5px);
 }
 #totalCost{
   color:#07a;
@@ -292,6 +300,15 @@ body{
     position: static;
     margin:10px 180px 10px 10px;
     float: left;
+  }
+}
+
+@media only screen and (max-width:496px){
+  .lineSeperator{
+    display: block;
+    position: relative;
+    width:220%;
+    left:-60%;
   }
 }
 

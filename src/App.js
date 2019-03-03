@@ -81,11 +81,12 @@ class BookerButtons extends Component{
       <div className='Booker'>
         <h2>{this.props.title}</h2>
         <img className='optionImage' src={this.props.image}/><br/>
-        <span class='cost' style={{position: 'absolute'}}>${this.props.booking.cost}</span>
+        <span className='cost' style={{position: 'absolute'}}>${this.props.booking.cost}</span>
         <button className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking.category)}>&lt;</button>
         <button className='rightButton' onClick={()=>this.props.slideRight(this.props.booking.category)}>&gt;</button>
         <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
         <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
+        <hr className='lineSeperator'/>
       </div>
     )
   }
@@ -191,6 +192,9 @@ const HotelOptions=(props)=>{
 class PurchaseButton extends Component{
   purchaseNow(){
     alert('Thank you, enjoy your stay!')
+    store.dispatch(unBookActionCreator({category:flight}));
+    store.dispatch(unBookActionCreator({category:destination}));
+    store.dispatch(unBookActionCreator({category:hotel}));
   }
 
   render(){
@@ -205,7 +209,7 @@ class PurchaseButton extends Component{
         </div>
       )
     }
-    
+
     else return(null);
   }
 }
