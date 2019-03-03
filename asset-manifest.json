@@ -1,9 +1,9 @@
 {
-  "main.css": "/redux-vacation/static/css/main.65180fe4.chunk.css",
-  "main.js": "/redux-vacation/static/js/main.99846eb5.chunk.js",
-  "main.js.map": "/redux-vacation/static/js/main.99846eb5.chunk.js.map",
-  "static/js/1.9072d543.chunk.js": "/redux-vacation/static/js/1.9072d543.chunk.js",
-  "static/js/1.9072d543.chunk.js.map": "/redux-vacation/static/js/1.9072d543.chunk.js.map",
+  "main.css": "/redux-vacation/static/css/main.dd84b9c7.chunk.css",
+  "main.js": "/redux-vacation/static/js/main.f65b55f4.chunk.js",
+  "main.js.map": "/redux-vacation/static/js/main.f65b55f4.chunk.js.map",
+  "static/js/1.55eed553.chunk.js": "/redux-vacation/static/js/1.55eed553.chunk.js",
+  "static/js/1.55eed553.chunk.js.map": "/redux-vacation/static/js/1.55eed553.chunk.js.map",
   "runtime~main.js": "/redux-vacation/static/js/runtime~main.4a6edf91.js",
   "runtime~main.js.map": "/redux-vacation/static/js/runtime~main.4a6edf91.js.map",
   "static/media/checkmark.png": "/redux-vacation/static/media/checkmark.5a2cb82c.png",
@@ -16,8 +16,8 @@
   "static/media/fancies.jpg": "/redux-vacation/static/media/fancies.6879ed08.jpg",
   "static/media/jwMarriott.jpg": "/redux-vacation/static/media/jwMarriott.d756b3fe.jpg",
   "static/media/trustyAirlines.jpg": "/redux-vacation/static/media/trustyAirlines.dc189705.jpg",
-  "static/css/main.65180fe4.chunk.css.map": "/redux-vacation/static/css/main.65180fe4.chunk.css.map",
+  "static/css/main.dd84b9c7.chunk.css.map": "/redux-vacation/static/css/main.dd84b9c7.chunk.css.map",
   "index.html": "/redux-vacation/index.html",
-  "precache-manifest.2909b4c6c6fc8b4867f15bd78a24f4c9.js": "/redux-vacation/precache-manifest.2909b4c6c6fc8b4867f15bd78a24f4c9.js",
+  "precache-manifest.449da8bb79b8cb5591b305545a933ea2.js": "/redux-vacation/precache-manifest.449da8bb79b8cb5591b305545a933ea2.js",
   "service-worker.js": "/redux-vacation/service-worker.js"
 }
