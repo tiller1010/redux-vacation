@@ -184,7 +184,7 @@ body{
   border-radius: 0 0 0 50%;
 }
 .cost{
-  transform: translateX(5px);
+  transform: translate(10%, 3px);
 }
 #totalCost{
   color:#07a;
@@ -307,8 +307,8 @@ body{
   .lineSeperator{
     display: block;
     position: relative;
-    width:220%;
-    left:-60%;
+    width:140%;
+    left:-20%;
   }
 }
 
