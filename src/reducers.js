@@ -18,7 +18,9 @@ const bookInitialState={
   flightChoice: none,
   destinationChoice: none,
   hotelChoice: none,
-  totalCost: 0
+  flightCost: 0,
+  destinationCost: 0,
+  hotelCost: 0
 }
 
 const sliderInitialState={
@@ -63,22 +65,22 @@ const bookReducer=(state=bookInitialState,action)=>{
     case book:
       switch(action.payload.category){
         case flight:
-          return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice, totalCost: state.totalCost += action.payload.cost});
+          return Object.assign({},state,{flightStatus: booked, flightChoice: action.payload.choice, flightCost: action.payload.cost});
         case destination:
-          return Object.assign({},state,{destinationStatus: booked, destinationChoice: action.payload.choice});
+          return Object.assign({},state,{destinationStatus: booked, destinationChoice: action.payload.choice, destinationCost: action.payload.cost});
         case hotel:
-          return Object.assign({},state,{hotelStatus: booked, hotelChoice: action.payload.choice});
+          return Object.assign({},state,{hotelStatus: booked, hotelChoice: action.payload.choice, hotelCost: action.payload.cost});
         default:
           return state;
       }
     case unbook:
       switch(action.payload.category){
         case flight:
-          return Object.assign({},state,{flightStatus: unbooked, flightChoice: none});
+          return Object.assign({},state,{flightStatus: unbooked, flightChoice: none, flightCost: 0});
         case destination:
-          return Object.assign({},state,{destinationStatus: unbooked, destinationChoice: none});
+          return Object.assign({},state,{destinationStatus: unbooked, destinationChoice: none, destinationCost: 0});
         case hotel:
-          return Object.assign({},state,{hotelStatus: unbooked, hotelChoice: none});
+          return Object.assign({},state,{hotelStatus: unbooked, hotelChoice: none, hotelCost: 0});
         default:
           return state;
       }
