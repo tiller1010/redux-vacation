@@ -167,12 +167,40 @@ body{
 
 .Purchase{
   position: absolute;
-  right:3px;
-  bottom:-50px;
+  right:0px;
+  bottom:-65px;
+  height:55px;
+  width:50px;
+  text-align: right;
+  padding-right: 10px;
   background: #dfd;
   border: solid #5f8;
   border-width: 5px;
   border-radius: 0 0 0 50%;
+}
+#totalCost{
+  color:#07a;
+  line-height: 11px;
+}
+.finalPurchase{
+  position: fixed;
+  left:0px;
+  width:100%;
+  top:45%;
+  padding: 15px;
+  border-radius: 25px;
+  outline: none;
+  font-family:  'Courgette', cursive;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  color:green;
+  background: linear-gradient(to bottom, white, #eedd22);
+  cursor: pointer;
+}
+.finalPurchase:hover{
+  background: #eedd22;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width:1120px){

@@ -194,12 +194,19 @@ class PurchaseButton extends Component{
   }
 
   render(){
-    return(
-      <div className='Purchase'>
-        <h2 id='totalCost'>${this.props.flightCost+this.props.destinationCost+this.props.hotelCost}</h2>
-        {this.props.flightStatus===booked && this.props.destinationStatus===booked && this.props.hotelStatus===booked && <button onClick={this.purchaseNow}>Book your stay now!</button>}
-      </div>
-    )
+
+    let cost=this.props.flightCost+this.props.destinationCost+this.props.hotelCost;
+
+    if(cost > 0){
+      return(
+        <div className='Purchase'>
+          <h4 id='totalCost'>${this.props.flightCost+this.props.destinationCost+this.props.hotelCost}</h4>
+          {this.props.flightStatus===booked && this.props.destinationStatus===booked && this.props.hotelStatus===booked && <button className='finalPurchase' onClick={this.purchaseNow}>Book your stay now!</button>}
+        </div>
+      )
+    }
+    
+    else return(null);
   }
 }
 
