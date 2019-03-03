@@ -127,7 +127,8 @@ class DisplayStatus extends Component{
           </div>
         </h4>
 
-        <h2 id='totalCost'>${this.props.flightCost+this.props.destinationCost+this.props.hotelCost}</h2>
+        <Purchase/>
+
       </div>
     )
   }
@@ -187,11 +188,27 @@ const HotelOptions=(props)=>{
   }
 }
 
+class PurchaseButton extends Component{
+  purchaseNow(){
+    alert('Thank you, enjoy your stay!')
+  }
+
+  render(){
+    return(
+      <div className='Purchase'>
+        <h2 id='totalCost'>${this.props.flightCost+this.props.destinationCost+this.props.hotelCost}</h2>
+        {this.props.flightStatus===booked && this.props.destinationStatus===booked && this.props.hotelStatus===booked && <button onClick={this.purchaseNow}>Book your stay now!</button>}
+      </div>
+    )
+  }
+}
+
 const Booker = connect(mapStateToProps,mapDispatchToProps)(BookerButtons);
 const Display = connect(mapStateToProps)(DisplayStatus);
 const Fly = connect(mapStateToProps)(FlightOptions);
 const Vacation = connect(mapStateToProps)(DestinationOptions);
 const Stay = connect(mapStateToProps)(HotelOptions);
+const Purchase = connect(mapStateToProps)(PurchaseButton);
 
 const App=()=>{
   return(
