@@ -192,23 +192,26 @@ body{
 }
 .finalPurchase{
   position: fixed;
-  left:0px;
-  width:100%;
+  width:70%;
+  border: none;
+  display: block;
+  left: 50%;
+  margin-left: -37.5%;
   top:45%;
   padding: 15px;
-  border-radius: 25px;
   outline: none;
   font-family:  'Courgette', cursive;
   font-size: 20px;
   letter-spacing: 4px;
   font-weight: bold;
   color:green;
-  background: linear-gradient(to bottom, white, #eedd22);
+  background: #9df;
   cursor: pointer;
+  transition: background 1s;
+  text-decoration: underline;
 }
 .finalPurchase:hover{
-  background: #eedd22;
-  text-decoration: underline;
+  background: #eed14a;
 }
 
 @media only screen and (max-width:1120px){

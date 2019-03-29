@@ -82,8 +82,8 @@ class BookerButtons extends Component{
         <h2>{this.props.title}</h2>
         <img className='optionImage' src={this.props.image}/><br/>
         <span className='cost' style={{position: 'absolute'}}>${this.props.booking.cost}</span>
-        <button className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking.category)}>&lt;</button>
-        <button className='rightButton' onClick={()=>this.props.slideRight(this.props.booking.category)}>&gt;</button>
+        <button style={{visibility: this.props.leftVisible}} className='leftButton' onClick={()=>this.props.slideLeft(this.props.booking.category)}>&lt;</button>
+        <button style={{visibility: this.props.rightVisible}} className='rightButton' onClick={()=>this.props.slideRight(this.props.booking.category)}>&gt;</button>
         <button className='bookButton' onClick={()=>this.props.book(this.props.booking)}>Book Now</button>
         <button className='unbookButton' onClick={()=>this.props.unbook(this.props.booking)}>Unbook</button>
         <hr className='lineSeperator'/>
@@ -139,7 +139,7 @@ const FlightOptions=(props)=>{
   switch(props.flightSlider){
     case 0:
       return(
-        <Booker booking={{category:flight, choice:'Trusty Airlines', cost: 122}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
+        <Booker leftVisible='hidden' booking={{category:flight, choice:'Trusty Airlines', cost: 122}} title='Trusty Airlines' image={require("./images/trustyAirlines.jpg")}/>
       )
     case 1:
       return(
@@ -147,7 +147,7 @@ const FlightOptions=(props)=>{
       )
     case 2:
       return(
-        <Booker booking={{category:flight, choice:'Distance Airlines', cost: 110}} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
+        <Booker rightVisible='hidden' booking={{category:flight, choice:'Distance Airlines', cost: 110}} title='Distance Airlines' image={require("./images/distanceAirlines.jpg")}/>
       )
     default: return this;
   }
@@ -157,7 +157,7 @@ const DestinationOptions=(props)=>{
   switch(props.destinationSlider){
     case 0:
       return(
-        <Booker booking={{category:destination, choice:'Aruba', cost: 177}} title='Aruba' image={require("./images/aruba.jpg")}/>
+        <Booker leftVisible='hidden' booking={{category:destination, choice:'Aruba', cost: 177}} title='Aruba' image={require("./images/aruba.jpg")}/>
       )
     case 1:
       return(
@@ -165,7 +165,7 @@ const DestinationOptions=(props)=>{
       )
     case 2:
       return(
-        <Booker booking={{category:destination, choice:'Costa Rica', cost: 184}} title='Costa Rica' image={require("./images/costarica.jpg")}/>
+        <Booker rightVisible='hidden' booking={{category:destination, choice:'Costa Rica', cost: 184}} title='Costa Rica' image={require("./images/costarica.jpg")}/>
       )
     default: return this;
   }
@@ -175,7 +175,7 @@ const HotelOptions=(props)=>{
   switch(props.hotelSlider){
     case 0:
       return(
-        <Booker booking={{category:hotel, choice:'Holiday Inn', cost: 134}} title='Holiday Inn' image={require("./images/holidayInn.jpg")}/>
+        <Booker leftVisible='hidden' booking={{category:hotel, choice:'Holiday Inn', cost: 134}} title='Holiday Inn' image={require("./images/holidayInn.jpg")}/>
       )
     case 1:
       return(
@@ -183,7 +183,7 @@ const HotelOptions=(props)=>{
       )
     case 2:
       return(
-        <Booker booking={{category:hotel, choice:'JW Marriott', cost: 123}} title='JW Marriott' image={require("./images/jwMarriott.jpg")}/>
+        <Booker rightVisible='hidden' booking={{category:hotel, choice:'JW Marriott', cost: 123}} title='JW Marriott' image={require("./images/jwMarriott.jpg")}/>
       )
     default: return this;
   }
