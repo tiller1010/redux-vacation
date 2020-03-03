@@ -10,7 +10,7 @@ body{
   text-shadow: 4px 4px 5px #222200;
 }
 #headingStripe{
-  width:890px;
+  width:90%;
   height:50px;
   background: #55cc55;
   position: relative;
@@ -35,46 +35,25 @@ body{
 #DisplayStatus{
   position: -webkit-sticky;
   position: sticky;
-  top:-30px;
+  top: 0;
   width:70%;
   margin:auto;
   height:150px;
   background: #0e6;
   z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
  .statusDisplays{
-  position: relative;
-  display: inline-block;
-  top:90px;
+  text-align: center;
 }
 .choice{
-  position: relative;
-  bottom:100px;
   color:white;
   font-family: 'Krub', sans-serif;
   text-shadow: 1px 1px 5px #559;
   font-size: 18px;
   font-style: italic;
-  left:17px;
-}
-#destinationChoice{
-  left:50px;
-}
-.Circles{
-  position: absolute;
-  transform: translate(200px, -142px);
-}
-#displayFlight{
-  margin-left: 10px;
-}
-#displayDestination{
-  position: absolute;
-  left: 38%;
-  margin-top:20px;
-}
-#displayHotel{
-  float:right;
-  margin-right: 10px;
 }
 
 .Booker{
@@ -221,16 +200,7 @@ body{
   .statusDisplays{
     font-size: 14px;
   }
-  #displayDestination{
-    left: 38%;
-    margin-right: 10%;
-  }
 }
-
-@media only screen and (max-width:880px){
-  .Circles{
-    transform: translate(175px, -142px);}
-  }
 
 @media only screen and (max-width:830px){
   .Circles{
@@ -261,11 +231,6 @@ body{
     white-space: nowrap;
     font-size: 13px;
   }
-  #displayDestination{
-    left:35%;
-    margin-right: 0px;
-    margin-top:18px
-  }
   .Footer{
     font-size: 13px;
   }
@@ -278,31 +243,24 @@ body{
   }
 
   #DisplayStatus{
-    top:0px;
+    flex-direction: column;
+    padding: 15px 0;
   }
 
   .statusDisplays{
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
-  .choiceContainer{
-    position: relative;
-    top:120px;
-    left:180px;
+  .statusDisplays h4{
+    margin: 0;
   }
   .choice{
-    position: absolute;
-    width:170px;
     text-align: right;
     white-space: nowrap;
-  }
-  #destinationChoice{
-    left:14px;
-  }
-  #displayFlight, #displayDestination, #displayHotel{
-    position: static;
-    margin:10px 180px 10px 10px;
-    float: left;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -323,9 +281,5 @@ body{
 
   .statusDisplays{
     font-size: 12px;
-  }
-
-  .choiceContainer{
-    transform: translateX(-65px);
   }
 }
